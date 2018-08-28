@@ -27,27 +27,93 @@ class List {
         	return tail->data;
         };
         void push_front(T value){
-        	Node<T>* nuevo = new Node<T>;
+        	Node<T>* nuevo = new Node<T>;//Falta revisar si hay un solo nodo
         	nuevo -> next = head;
         	nuevo -> data = value;
         	head = nuevo;
         };
         void push_back(T value){
-			Node<T>* nuevo = new Node<T>;
+			Node<T>* nuevo = new Node<T>;//Falta revisar si hay un solo nodo
         	nuevo -> next = NULL;
         	nuevo -> data = value;
         	tail->next = nuevo;
         	tail=nuevo;
         };
-        void pop_front();
-        void pop_back();
-        T get(int position);
+        void pop_front(){
+            
+            if(head){
+                if (head->next==nullptr)
+                {
+                    delete head;
+                    head= nullptr;
+                } else{
+                    Node* temp= head->next;
+                    delete head;
+                    head= nullptr;
+                    head = temp;
+                }
+
+
+        };
+
+        void pop_back(){
+            if (head)
+            {
+                if(head->next=nullptr){
+                    delete head;
+                    head = nullptr;
+                } else{
+                        Node* temp=head;   
+                        while(temp->next=!tail){
+                            temp=temp->next;
+                        }
+
+                        delete tail;
+                        tail=temp;
+                        tail->next= nullptr;
+                    }
+
+            }
+        };
+        T get(int position){
+            Node* temp;
+            for (int i = 0; i < position; ++i)
+            {
+                if (temp->next==nullptr)
+                {
+                    return cout<<"Posicion demasiado larga"<<endl;
+                }
+                temp->next=temp;
+            }
+            cout<<temp<<endl;
+        };
         void concat(List<T> &other);
-        bool empty();
-        int size();
-        void print();
+     
+        bool empty(){
+        return head==NULL?true:false;
+    };
+        int size(){
+            if(empty()){int i=0;
+                Node* temp=head
+                do
+                {
+                    i++;
+                } while(temp->next=!nullptr);}
+                return i;
+        };
+        void print(){
+            if(empty()){int i=0;
+                Node* temp=head
+                do
+                {
+                    i++;
+                } while(temp->next=!nullptr);}
+                return i;
+        };
         void print_reverse();
-        void clear();
+        void clear(){
+            
+        };
         Iterator<T> begin();
         Iterator<T> end();
 
