@@ -138,10 +138,11 @@ class List {
                 return i;
         };
         void print_reverse(){
-            if (next){
-            next->print_reverse();
+
+            for (int i = size(); i>0; --i)
+            {
+                cout<<get(i-1)<<endl;
             }
-            cout<<this<<endl;
         };
 
         void clear(){
