@@ -27,21 +27,36 @@ class List {
         	return tail->data;
         };
         void push_front(T value){
-        	Node<T>* nuevo = new Node<T>;//Falta revisar si hay un solo nodo
+        	Node<T>* nuevo = new Node<T>;
+            if(empty()){
+                nuevo->data=value;
+                nuevo->next=nullptr
+                head=nuevo;
+                tail=nuevo;
+            }else{
         	nuevo -> next = head;
         	nuevo -> data = value;
         	head = nuevo;
+            }
         };
         void push_back(T value){
-			Node<T>* nuevo = new Node<T>;//Falta revisar si hay un solo nodo
+			Node<T>* nuevo = new Node<T>;
+            if (empty())
+            {
+                nuevo->data=value;
+                nuevo->next=nullptr
+                head=nuevo;
+                tail=nuevo;
+            }else{
         	nuevo -> next = NULL;
         	nuevo -> data = value;
         	tail->next = nuevo;
-        	tail=nuevo;
+        	tail=nuevo; 
+            }
         };
         void pop_front(){
             
-            if(head){
+            if(empty()){
                 if (head->next==nullptr)
                 {
                     delete head;
@@ -57,7 +72,7 @@ class List {
         };
 
         void pop_back(){
-            if (head)
+            if (empty())
             {
                 if(head->next=nullptr){
                     delete head;
@@ -77,6 +92,7 @@ class List {
         };
         T get(int position){
             Node* temp;
+            temp=head;
             for (int i = 0; i < position; ++i)
             {
                 if (temp->next==nullptr)
@@ -87,7 +103,18 @@ class List {
             }
             cout<<temp<<endl;
         };
-        void concat(List<T> &other);
+        void concat(List<T> &other){
+            if(empty()){
+                head=other->head;
+                tail=other->tail;
+            }else if(!other.empty()){
+                tail->next = other->head;
+                tail= other->tail;
+
+            }else{
+                cout<<"No hay cambios"<<endl;
+            }
+        };
      
         bool empty(){
         return head==NULL?true:false;
@@ -110,9 +137,14 @@ class List {
                 } while(temp->next=!nullptr);}
                 return i;
         };
-        void print_reverse();
+        void print_reverse(){
+            if (next){
+            next->print_reverse();
+            }
+            cout<<this<<endl;
+        };
+
         void clear(){
-            
         };
         Iterator<T> begin();
         Iterator<T> end();
