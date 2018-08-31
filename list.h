@@ -17,20 +17,20 @@ class List {
         void print_reverse(Node<T>* head);
 
     public:
-        List(){
+        List(){ // Te faltó incializar
         };
 
         T front(){
-        	return head-> data;
+        	return head-> data; // Te faltó controlar los casos de lista vacía
         };
         T back(){
-        	return tail->data;
+        	return tail->data; // Igual que el caso anterior
         };
         void push_front(T value){
         	Node<T>* nuevo = new Node<T>;
             if(empty()){
                 nuevo->data=value;
-                nuevo->next=nullptr
+                nuevo->next=nullptr  // Falta ; esto no va a compilar
                 head=nuevo;
                 tail=nuevo;
             }else{
@@ -44,7 +44,7 @@ class List {
             if (empty())
             {
                 nuevo->data=value;
-                nuevo->next=nullptr
+                nuevo->next=nullptr // Falta ; esto no va a compilar
                 head=nuevo;
                 tail=nuevo;
             }else{
@@ -62,7 +62,7 @@ class List {
                     delete head;
                     head= nullptr;
                 } else{
-                    Node* temp= head->next;
+                    Node* temp= head->next; // Falta el tipo <T>, esto no va a compilar
                     delete head;
                     head= nullptr;
                     head = temp;
@@ -78,7 +78,7 @@ class List {
                     delete head;
                     head = nullptr;
                 } else{
-                        Node* temp=head;   
+                        Node* temp=head;     // Falta el tipo <T>, esto no va a compilar
                         while(temp->next=!tail){
                             temp=temp->next;
                         }
@@ -91,7 +91,7 @@ class List {
             }
         };
         T get(int position){
-            Node* temp;
+            Node* temp; // Falta el tipo <T>, esto no va a compilar
             temp=head;
             for (int i = 0; i < position; ++i)
             {
@@ -117,11 +117,11 @@ class List {
         };
      
         bool empty(){
-        return head==NULL?true:false;
+        return head==NULL?true:false; // No es necesario el ? true:false
     };
         int size(){
             if(empty()){int i=0;
-                Node* temp=head
+                Node* temp=head  // Falta el tipo <T>, esto no va a compilar
                 do
                 {
                     i++;
@@ -130,14 +130,14 @@ class List {
         };
         void print(){
             if(empty()){int i=0;
-                Node* temp=head
+                Node* temp=head  // Falta el tipo <T>, esto no va a compilar
                 do
                 {
                     i++;
-                } while(temp->next=!nullptr);}
+                } while(temp->next=!nullptr);} // Esto imprime la lista, no el tamaño
                 return i;
         };
-        void print_reverse(){
+        void print_reverse(){ // Podrías haber usado la manera recursiva para un mejor tiempo, pero esto debería funcionar
 
             for (int i = size(); i>0; --i)
             {
@@ -145,12 +145,12 @@ class List {
             }
         };
 
-        void clear(){
+        void clear(){ // No se implementó
         };
         Iterator<T> begin();
         Iterator<T> end();
 
-        ~List();
+        ~List(); // No se implementó
 
 };
 
